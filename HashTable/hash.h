@@ -18,7 +18,7 @@ using std::string;
 class hash{
     
 private:
-    static const int tableSize = 10;
+    static const int tableSize = 4;
     
     struct item{
         string key;
@@ -30,7 +30,14 @@ private:
     
 public:
     hash();
-    int Hash(std::string key);
+    ~hash();
+    int Hash(string key);
+    void AddItem(string key, string value);
+    int NumberOfItemsInBucket(int index);
+    void PrintTable();
+    void PrintItemsInIndex(int index);
+    void FindItem(string key);
+    void RemoveItem(string key);
     
 };
 
