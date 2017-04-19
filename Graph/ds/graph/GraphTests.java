@@ -39,13 +39,6 @@ public class GraphTests {
         testVertex.getEdge(null);
     }
 
-    @Test(expected = NullPointerException.class)
-    public void removeEdgeWithNullArgumentThrows()
-    {
-        Vertex testVertex = new Vertex("A");
-
-        testVertex.removeEdge(null);
-    }
 
     @Test (expected = UnsupportedOperationException.class)
     public void testGetEdgesReturnsUnmodifiableList()
@@ -165,6 +158,17 @@ public class GraphTests {
         Assert.assertFalse(testGraph.containsEdge(new Edge(v3, v1)));
         Assert.assertFalse(testGraph.containsEdge(new Edge(v1, v3)));
 
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void removingNonExistingVertexThrows()
+    {
+        Vertex v1 = new Vertex("A");
+
+        Graph testGraph = new Graph(v1);
+
+        testGraph.removeVertex(v1.getLabel());
+        testGraph.removeVertex(v1.getLabel()); //No longer within graph
     }
 
     @Test

@@ -27,16 +27,28 @@ public class Vertex {
         this.edgesFromVertex = new ArrayList<>();
     }
 
+    /**
+     *
+     * @return the label of this vertex
+     */
     public String getLabel()
     {
         return this.label;
     }
 
+    /**
+     *
+     * @return all edges connected to this vertex
+     */
     public List<Edge> getEdgesFromVertex()
     {
         return Collections.unmodifiableList(this.edgesFromVertex);
     }
 
+    /**
+     * Adds en edge to this vertex
+     * @param edge edge to add to this vertex
+     */
     public void addEdge(Edge edge)
     {
         Objects.requireNonNull(edge);
@@ -48,12 +60,11 @@ public class Vertex {
         edgesFromVertex.add(edge);
     }
 
-    public void removeEdge(Edge edge)
-    {
-        Objects.requireNonNull(edge);
-
-    }
-
+    /**
+     * Determines if the edge given is part of the vertex edges
+     * @param edge
+     * @return true if vertex contains edge, false otherwise
+     */
     public boolean containsEdge(Edge edge)
     {
         Objects.requireNonNull(edge);
@@ -61,6 +72,11 @@ public class Vertex {
         return edgesFromVertex.contains(edge);
     }
 
+    /**
+     * Obtains the edge given if within edges
+     * @param edge
+     * @return the edge
+     */
     public Edge getEdge(Edge edge)
     {
         Objects.requireNonNull(edge);
@@ -88,6 +104,10 @@ public class Vertex {
         return(label.equals(v.label));
     }
 
+    /**
+     *
+     * @return returns number of edges
+     */
     public int numberOfEdges()
     {
         return edgesFromVertex.size();

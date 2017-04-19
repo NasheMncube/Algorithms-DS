@@ -29,6 +29,13 @@ public class Graph {
         }
     }
 
+    /**
+     * Adds an edge to graph
+     * @param v1 source vertex
+     * @param v2 destination vertex
+     * @param weight the weight of the edge
+     * @return true if edge successfully added, false otherwise.
+     */
     public boolean addEdge(Vertex v1, Vertex v2, int weight)
     {
         if(v1.equals(v2))
@@ -54,6 +61,11 @@ public class Graph {
         return addEdge(v1, v2, 1);
     }
 
+    /**
+     * Determines if edge is within graph
+     * @param e edge
+     * @return true if graph contains edge false otherwise
+     */
     public boolean containsEdge(Edge e)
     {
         if(e.getSource() == null && e.getDestination() == null)
@@ -62,24 +74,43 @@ public class Graph {
         return (edges.containsKey(e.hashCode()));
     }
 
+    /**
+     * Removes an edge
+     * @param e edge
+     * @return the edge removed. If it fails, returns null
+     */
     public Edge removeEdge(Edge e)
     {
-        e.getSource().removeEdge(e);
-        e.getDestination().removeEdge(e);
         return edges.remove(e.hashCode());
     }
 
+    /**
+     *
+     * @param v vertex
+     * @return true if graph contains vertex, false otherwise
+     */
     public boolean containsVertex(Vertex v)
     {
         return vertices.containsKey(v.getLabel());
     }
 
+    /**
+     *
+     * @param v vertex
+     * @return returns vertex, returns null if vertex not in graph
+     */
     public Vertex getVertex(Vertex v)
     {
         Objects.requireNonNull(v);
         return vertices.get(v.getLabel());
     }
 
+    /**
+     * Adds a vertex to the graph
+     * @param v vertex
+     * @param overwrite true if user wants to overwrite existing vertex, false otherwise
+     * @return true if vertex successfully added false otherwise
+     */
     public boolean addVertex(Vertex v, boolean overwrite)
     {
         Objects.requireNonNull(v);
@@ -103,9 +134,16 @@ public class Graph {
         return addVertex(v, false);
     }
 
+    /**
+     * removes a vertex
+     * @param v vertex
+     * @return The vertex removed. Null if not within graph
+     */
     public Vertex removeVertex(String v)
     {
         Vertex vertex = vertices.remove(v);
+        if(vertex == null)
+            throw new IllegalArgumentException("Vertex not within graph");
 
         vertex.getEdgesFromVertex().forEach(e ->
         {
@@ -115,11 +153,19 @@ public class Graph {
         return vertex;
     }
 
+    /**
+     *
+     * @return {@link Set<String>} set of all vertex labels
+     */
     public Set<String> vertexKeys()
     {
         return vertices.keySet();
     }
 
+    /**
+     *
+     * @return {@link Set<Edge>} of all edges within graph
+     */
     public Set<Edge> getEdges()
     {
         return new HashSet<Edge>(edges.values());

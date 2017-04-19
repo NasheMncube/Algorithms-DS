@@ -41,26 +41,48 @@ public class Edge implements Comparable<Edge>{
         this.weight = 1;
     }
 
+    /**
+     *
+     * @return the weight of this edge
+     */
     public int getEdgeWeight()
     {
         return this.weight;
     }
 
+    /**
+     *
+     * @return the source vertex of this edge
+     */
     public Vertex getSource()
     {
         return this.source;
     }
 
+    /**
+     *
+     * @return the destination vertex of this edge
+     */
     public Vertex getDestination()
     {
         return this.destination;
     }
 
+    /**
+     * Sets the weight of the edge
+     * @param weight new weight; nonNull
+     */
     public void setWeight(int weight)
     {
+        Objects.requireNonNull(weight);
         this.weight = weight;
     }
 
+    /**
+     * Compares this edge and arguments' weight
+     * @param edge the edge to compare
+     * @return the difference in weights
+     */
     public int compareTo(Edge edge)
     {
         return this.weight - edge.getEdgeWeight();
