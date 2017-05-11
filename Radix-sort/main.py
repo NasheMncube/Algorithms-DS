@@ -1,9 +1,9 @@
 """
 Author: Nashe Mncube
-This script implements the radizx sort algorithm
+This script implements the radix sort algorithm
 Information on the algorithm and it's implementation can be found here
 https://en.wikipedia.org/wiki/Radix_sort
-
+Following this tutorial: http://www.geekviewpoint.com/python/sorting/radixsort
 """
 
 
