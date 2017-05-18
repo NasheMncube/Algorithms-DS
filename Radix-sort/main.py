@@ -3,11 +3,15 @@ Author: Nashe Mncube
 This script implements the radix sort algorithm
 Information on the algorithm and it's implementation can be found here
 https://en.wikipedia.org/wiki/Radix_sort
+<<<<<<< HEAD
+=======
+Following this tutorial: http://www.geekviewpoint.com/python/sorting/radixsort
+>>>>>>> b609e303c39b3eecb3e46c0b38ab3824c9137edf
+
 
 The algorithm has average case complexity of big_theta(nk) where k is the word
 size. The best case complexity is big_omega(nk) and worst case O(nk).
-
-
+=======
 """
 
 
