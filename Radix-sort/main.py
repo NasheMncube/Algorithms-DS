@@ -1,8 +1,12 @@
 """
 Author: Nashe Mncube
-This script implements the radizx sort algorithm
+This script implements the radix sort algorithm
 Information on the algorithm and it's implementation can be found here
 https://en.wikipedia.org/wiki/Radix_sort
+
+The algorithm has average case complexity of big_theta(nk) where k is the word
+size. The best case complexity is big_omega(nk) and worst case O(nk).
+
 
 """
 
@@ -14,20 +18,20 @@ def radixSort(aList):
 
     while not maxLength:
         maxLength = True
-        buckets = [list() for _ in range(RADIX)]
+        buckets = [list() for _ in range(RADIX)] #We initialise our buckets
 
         for i in aList:
-            tmp = int((int(i)-97) / placement)
+            tmp = int((int(i)-97) / placement) #The i'th digit of out current value
             buckets[tmp % RADIX].append(i)
             if maxLength and tmp > 0:
                 maxLength = False
         a = 0
-        for b in range(RADIX):
+        for b in range(RADIX): #This loop places values from buckets back in list
             buck = buckets[b]
             for i in buck:
                 aList[a] = i
                 a += 1
-        placement *= RADIX
+        placement *= RADIX #Looking at the next digit of out values in list
     return aList
 
 
