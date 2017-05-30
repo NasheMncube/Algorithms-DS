@@ -36,8 +36,7 @@ def merge(left, right):
 def mergeSort(array, first):
     div = len(array) %2 == 0
     if len(array) == 1:
-        array = array[0]
-        return array
+        return array[0]
     if first == True: #If first recursion step, break down list to single list
         array = [[x] for x in array]
     if div == False: #Odd number of elements, take last element and merge to penultimate
