@@ -4,9 +4,12 @@
 #include "linkedlist.h"
 
 int main(int argc, char *argv[argc]){
-  List *newList = createList();
-  print_list(newList);
+  List *list = createList();
+  print_list(list);
+  for(int *i = 0; *i<5; *i++)
+    insert_in_place(list, (void*)i);
 
-  free(newList);
+  print_list(list);
+  delete_list(list);
   return 0;
 }

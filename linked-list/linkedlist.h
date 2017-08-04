@@ -13,13 +13,13 @@ typedef struct Node{
 typedef struct List{
   struct Node *head;
   struct Node *current;
+  struct Node *tail;
 }List;
 
 List* createList();
 void destroy_list(List *l);
 
 void insert_in_place(List *l, void *val);
-void insert_at_end(List *l, void *val);
-
 void delete_in_place(List *l);
-void print_list(List *list);
+
+void print_list(List *l);
