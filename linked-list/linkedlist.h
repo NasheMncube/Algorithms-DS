@@ -1,6 +1,6 @@
-/* 
+/*
  Author: Nashe Mncube
- 
+
  In here we define the primary functions used in the implementation of a linked list.
 
 */

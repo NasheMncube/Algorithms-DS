@@ -5,11 +5,10 @@
 
 int main(int argc, char *argv[argc]){
   List *list = createList();
-  print_list(list);
-  for(int *i = 0; *i<5; *i++)
-    insert_in_place(list, (void*)i);
+
+  
 
   print_list(list);
-  delete_list(list);
+  free(list);
   return 0;
 }
